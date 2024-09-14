@@ -13,7 +13,7 @@ router.post("/", (req, res) => {
   const { username, password } = req.body;
 
   if (username === USERNAME && password === PASSWORD) {
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "2m" });
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "30m" });
     res.json({ token });
   } else {
     res.status(401).json({ message: "Invalid username or password" });

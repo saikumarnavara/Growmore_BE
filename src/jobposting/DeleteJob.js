@@ -11,7 +11,6 @@ router.delete("/:id", async (req, res) => {
     if (!deletedItem) {
       return res.status(404).json({ message: "Job not found" });
     }
-
     res.status(200).json({ message: "Job deleted successfully", deletedItem });
   } catch (error) {
     res.status(500).json({ error: error.message });
