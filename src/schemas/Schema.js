@@ -95,26 +95,6 @@ const ContactSchema = new mongoose.Schema(
 );
 
 // Create the Contact model
-const ContactUs = mongoose.model("Contact", ContactSchema);
+const ContactUs = mongoose.model("ContactUs", ContactSchema);
 module.exports = ContactUs;
 
-const CredentialsSchema = new mongoose.Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
-
-const Credentials = mongoose.model("Credentials", CredentialsSchema);
-module.exports = Credentials;
