@@ -12,6 +12,14 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
+app.use(
+  "/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, { customCssUrl: CSS_URL })
+);
+
 const mongoose = require("mongoose");
 const url = process.env.MONGO_URL;
 mongoose
@@ -45,7 +53,6 @@ app.use("/editjob", EditJob);
 app.get("/", (req, res) => {
   res.send("welcome to growmore");
 });
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
   console.log("Server is running on port :", port);
