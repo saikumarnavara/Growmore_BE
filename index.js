@@ -1,18 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const fs = require("fs");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger-output.json");
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+
 const mongoose = require("mongoose");
 const url = process.env.MONGO_URL;
 mongoose
   .connect(url)
   .then(() => console.log("DB connected.."))
   .catch((err) => console.log(err));
+
+if (fs.existsSync("./swagger-output.json")) {
+  console.log("Swagger output JSON exists!");
+} else {
+  console.error("Swagger output JSON does not exist!");
+}
 
 const Loginroute = require("./src/login/Login");
 const auth = require("./src/login/authMiddleware");
