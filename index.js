@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger-output.json");
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(cors({ origin: "*" }));
@@ -30,9 +32,11 @@ app.use("/deletejob", DeleteJob);
 app.use("/editjob", EditJob);
 
 app.get("/", (req, res) => {
-  res.send("welcome to server");
+  res.send("welcome to growmore");
 });
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
   console.log("Server is running on port :", port);
+  console.log(`Swagger Docs available at http://localhost:${port}/docs`);
 });
