@@ -1,6 +1,6 @@
 const swaggerAutogen = require("swagger-autogen")();
 
-const isProduction = process.env.NODE_ENV === "production" || true;
+const isProduction = process.env.NODE_ENV === "production" ? true : false;
 console.log({ isProduction });
 
 const doc = {
