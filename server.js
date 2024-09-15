@@ -5,9 +5,7 @@ const port = 4001;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 const mongoose = require("mongoose");
-const url =
-  "mongodb+srv://sai1342:04121998%40Dob@cluster0.woilnkh.mongodb.net/growmoreDB?retryWrites=true&w=majority&appName=Cluster0";
-
+const url = process.env.MONGODB_URI;
 mongoose
   .connect(url)
   .then(() => console.log("DB connected.."))
