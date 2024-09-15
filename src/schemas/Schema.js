@@ -1,17 +1,6 @@
 const mongoose = require("mongoose");
 
-// User Schema and Model
-const UserSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
-
-const User = mongoose.model("User", UserSchema);
-
-module.exports = User;
-
 // schema for creating a job/internship
-
 const CreateJobPosting = new mongoose.Schema({
   title: {
     type: String,
@@ -28,5 +17,104 @@ const CreateJobPosting = new mongoose.Schema({
 });
 
 const CreateJob = mongoose.model("CreateJobPosting", CreateJobPosting);
-
 module.exports = CreateJob;
+
+// schema for applying to a job/internship
+
+const ApplyJobSchema = new mongoose.Schema(
+  {
+    fullName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    highestEducation: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    percentage: {
+      type: Number,
+      required: true,
+    },
+    resume: {
+      type: String,
+      required: true, // Assuming you'll store a path to the resume file or URL
+    },
+    totalExp: {
+      type: Number,
+      required: true,
+    },
+    coverLetter: {
+      type: String, // Optional field
+      required: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const ApplyJob = mongoose.model("ApplyJob", ApplyJobSchema);
+module.exports = ApplyJob;
+
+// schema for contact us form
+const ContactSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+    },
+    query: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+  },
+  {
+    timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
+  }
+);
+
+// Create the Contact model
+const ContactUs = mongoose.model("Contact", ContactSchema);
+module.exports = ContactUs;
+
+const CredentialsSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Credentials = mongoose.model("Credentials", CredentialsSchema);
+module.exports = Credentials;

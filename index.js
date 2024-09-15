@@ -39,6 +39,11 @@ const CreateJob = require("./src/jobposting/CreateJob");
 const GetJobList = require("./src/jobposting/GetJobList");
 const DeleteJob = require("./src/jobposting/DeleteJob");
 const EditJob = require("./src/jobposting/EditJob");
+const ApplyJob = require("./src/job-apply/ApplyJob");
+const GetAppliedJobList = require("./src/job-apply/GetAppliedJobList");
+const DeleteAppliedJob = require("./src/job-apply/DeleteAppliedJob");
+const Contact = require("./src/contact/Contact");
+const GetContactedUsersList = require("./src/contact/GetContactedUsersList");
 
 app.use("/login", Loginroute);
 
@@ -49,6 +54,11 @@ app.use("/createjob", CreateJob);
 app.use("/getjoblist", GetJobList);
 app.use("/deletejob", DeleteJob);
 app.use("/editjob", EditJob);
+app.use("/applyjob", ApplyJob);
+app.use("/getappliedjoblist", GetAppliedJobList);
+app.use("/deleteappliedjob", DeleteAppliedJob);
+app.use("/contact", Contact);
+app.use("/getcontacteduserslist", GetContactedUsersList);
 
 app.get("/", (req, res) => {
   res.send("welcome to growmore");
