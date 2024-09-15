@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const fs = require("fs");
+const path = require("path");
+
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger-output.json");
 const app = express();
