@@ -1,5 +1,5 @@
 const express = require("express");
-const ContactUs = require("../schemas/Schema");
+const ContactUs = require(".././schemas/contactSchema");
 const router = express.Router();
 
 // POST route to handle contact form submissions

@@ -42,7 +42,7 @@ const EditJob = require("./src/jobposting/EditJob");
 const ApplyJob = require("./src/job-apply/ApplyJob");
 const GetAppliedJobList = require("./src/job-apply/GetAppliedJobList");
 const DeleteAppliedJob = require("./src/job-apply/DeleteAppliedJob");
-const Contact = require("./src/contact/Contact");
+const ContactUs = require("./src/contact/Contact");
 const GetContactedUsersList = require("./src/contact/GetContactedUsersList");
 
 app.use("/login", Loginroute);
@@ -57,7 +57,7 @@ app.use("/editjob", EditJob);
 app.use("/applyjob", ApplyJob);
 app.use("/getappliedjoblist", GetAppliedJobList);
 app.use("/deleteappliedjob", DeleteAppliedJob);
-app.use("/contact", Contact);
+app.use("/contact", ContactUs);
 app.use("/getcontacteduserslist", GetContactedUsersList);
 
 app.get("/", (req, res) => {

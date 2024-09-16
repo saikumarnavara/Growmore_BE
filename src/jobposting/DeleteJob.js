@@ -1,5 +1,5 @@
 const express = require("express");
-const CreateJob = require("../schemas/Schema");
+const CreateJob = require("../schemas/CreateJobSchema");
 const router = express.Router();
 
 // Define the route to include an id parameter

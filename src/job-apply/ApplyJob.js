@@ -1,5 +1,5 @@
 const express = require("express");
-const ApplyJob = require("../schemas/Schema");
+const ApplyJob = require(".././schemas/ApplyJobSchema");
 const router = express.Router();
 
 // POST route to create a new job application

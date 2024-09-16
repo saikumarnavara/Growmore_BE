@@ -5,10 +5,10 @@ const doc = {
     title: "GROWMORE API",
     description: "API Documentation for GROWMORE",
   },
-   host: "growmore-seven.vercel.app",
-   schemes: ["https"],
-  //host: "localhost:4001",
-  //schemes: ["http"],
+  host: "growmore-seven.vercel.app",
+  schemes: ["https"],
+  // host: "localhost:4001",
+  // schemes: ["http"],
 };
 
 const outputFile = "./swagger-output.json";

@@ -1,12 +1,12 @@
 const express = require("express");
-const Contact = require("../schemas/Schema");
+const ContactUs = require(".././schemas/contactSchema");
 const router = express.Router();
 
 // GET route to retrieve all contact form submissions
 router.get("/", async (req, res) => {
   try {
     // Fetch all contact form submissions from the database
-    const contacts = await Contact.find();
+    const contacts = await ContactUs.find();
 
     // Send a success response with the list of contacts
     res.status(200).json({

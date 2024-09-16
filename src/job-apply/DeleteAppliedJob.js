@@ -1,5 +1,5 @@
 const express = require("express");
-const ApplyJob = require("../schemas/Schema"); // Adjust the path to your actual schema file
+const ApplyJob = require(".././schemas/ApplyJobSchema");
 const router = express.Router();
 
 // DELETE route to delete a specific job application
