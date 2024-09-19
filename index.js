@@ -9,11 +9,13 @@ const swaggerSpec = require("./swagger-output.json");
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(cors({ origin: "*" }));
-app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const CSS_URL =
   "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
+
 app.use(
   "/docs",
   swaggerUi.serve,
@@ -33,6 +35,8 @@ if (fs.existsSync("./swagger-output.json")) {
   console.error("Swagger output JSON does not exist!");
 }
 
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 const Loginroute = require("./src/login/Login");
 const auth = require("./src/login/authMiddleware");
 const CreateJob = require("./src/jobposting/CreateJob");
@@ -45,11 +49,10 @@ const DeleteAppliedJob = require("./src/job-apply/DeleteAppliedJob");
 const ContactUs = require("./src/contact/Contact");
 const GetContactedUsersList = require("./src/contact/GetContactedUsersList");
 
-app.use("/login", Loginroute);
-
 app.get("/protected", auth, (req, res) => {
   res.json({ message: "This is a protected route", user: req.user });
 });
+app.use("/login", Loginroute);
 app.use("/createjob", CreateJob);
 app.use("/getjoblist", GetJobList);
 app.use("/deletejob", DeleteJob);

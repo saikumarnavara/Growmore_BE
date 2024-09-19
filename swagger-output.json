@@ -5,10 +5,10 @@
     "description": "API Documentation for GROWMORE",
     "version": "1.0.0"
   },
-  "host": "growmore-seven.vercel.app",
+  "host": "localhost:4001",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/protected": {
@@ -178,6 +178,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "jobTitle": {
+                  "example": "any"
+                },
                 "fullName": {
                   "example": "any"
                 },
@@ -193,9 +196,6 @@
                 "percentage": {
                   "example": "any"
                 },
-                "resume": {
-                  "example": "any"
-                },
                 "totalExp": {
                   "example": "any"
                 },
@@ -209,6 +209,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
