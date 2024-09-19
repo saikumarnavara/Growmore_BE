@@ -42,9 +42,6 @@ const upload = multer({
 
 router.post("/", upload.single("resume"), async (req, res) => {
   try {
-    console.log("Request Body:", req.body);
-    console.log("Uploaded File:", req.file);
-
     const {
       jobTitle,
       fullName,
