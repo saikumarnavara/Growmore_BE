@@ -66,10 +66,10 @@ router.post("/", upload.single("resume"), async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    if (!req.file) {
-      console.log("Resume file is missing");
-      return res.status(400).json({ message: "Resume is required" });
-    }
+    // if (!req.file) {
+    //   console.log("Resume file is missing");
+    //   return res.status(400).json({ message: "Resume is required" });
+    // }
 
     const newUser = new ApplyJob({
       jobTitle,
@@ -78,7 +78,7 @@ router.post("/", upload.single("resume"), async (req, res) => {
       phone,
       highestEducation,
       percentage,
-      resume: req.file.path,
+      resume: req.file ? req.file.path : null,
       totalExp,
       coverLetter,
     });
@@ -92,7 +92,7 @@ router.post("/", upload.single("resume"), async (req, res) => {
   } catch (error) {
     console.error("Error creating job application:", error.stack);
     res.status(500).json({
-      message: "Internal server error",
+      // message: "Internal server error",
       error: error.message,
     });
   }

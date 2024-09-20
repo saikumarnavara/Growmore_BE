@@ -5,10 +5,10 @@
     "description": "API Documentation for GROWMORE",
     "version": "1.0.0"
   },
-  "host": "growmore-seven.vercel.app",
+  "host": "localhost:4001",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/protected": {

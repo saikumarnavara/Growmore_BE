@@ -74,7 +74,7 @@ const ApplyJobSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   highestEducation: { type: String, required: true },
   percentage: { type: String, required: true },
-  resume: { type: String, required: true },
+  resume: { type: String, required: false },
   totalExp: { type: String, required: true },
   coverLetter: { type: String },
 });
